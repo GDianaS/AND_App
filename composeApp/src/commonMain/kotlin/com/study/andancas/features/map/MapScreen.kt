@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.study.andancas.components.MapComponent
 import com.study.andancas.ui.BottomBar
 import com.study.andancas.ui.Header
 //import com.google.maps.android.compose.GoogleMap
@@ -48,18 +49,8 @@ fun MapScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = 64.dp, start = 16.dp, end = 16.dp)
-                    .height(280.dp)
-                    .background(color = Color.LightGray),
-                contentAlignment = Alignment.Center // Centraliza o conteúdo
-            ) {
-                Text(text = "[Mapa]")
-            }
-
+            //Google Maps
+            MapComponent()
 
         }
 

@@ -6,6 +6,11 @@ plugins {
     alias(libs.plugins.composeMultiplatform) apply false
     alias(libs.plugins.composeCompiler) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
-    alias(libs.plugins.secrets.gradle.plugin) apply false
 }
 
+// Adicionar a dependência de Secrets Gradle
+buildscript {
+    dependencies {
+        classpath(libs.maps.secrets.gradle.plugin)
+    }
+}

@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
-    alias(libs.plugins.secrets.gradle.plugin)
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 kotlin {
@@ -35,9 +35,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-
-
-
+            implementation(libs.androidx.google.maps)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -57,12 +55,6 @@ kotlin {
 
             //Navigation
             implementation(libs.compose.navigation)
-
-            //Google Maps
-            implementation(libs.google.maps.compose)
-            implementation(libs.google.maps.compose.utils)
-            implementation(libs.google.maps.compose.widgets)
-
 
         }
     }
@@ -114,8 +106,6 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.google.maps)
     implementation(libs.androidx.material3.android)
     implementation(libs.androidx.ui.graphics.android)
     implementation(libs.androidx.foundation.layout.android)
