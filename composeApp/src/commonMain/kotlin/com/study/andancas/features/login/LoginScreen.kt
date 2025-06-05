@@ -46,6 +46,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.study.andancas.components.getLocation
 import com.study.andancas.ui.ActionButton
 import com.study.andancas.ui.InputField
 import com.study.andancas.ui.OutlinedInputField
@@ -130,7 +131,7 @@ fun LoginScreen(
 
         )
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(8.dp))
 
         Separator(
             modifier = Modifier
@@ -139,7 +140,7 @@ fun LoginScreen(
                 .height(24.dp)
         )
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(8.dp))
 
         ActionButton(
             modifier=Modifier.padding(start = 16.dp, end = 16.dp),

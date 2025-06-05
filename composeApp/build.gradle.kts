@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+
 }
 
 kotlin {
@@ -36,6 +37,9 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.google.maps)
+
+            // Koin - Inject dependency
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -55,6 +59,30 @@ kotlin {
 
             //Navigation
             implementation(libs.compose.navigation)
+
+            // Koin - Inject dependency
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+
+
+            // Geolocation
+            implementation(libs.compass.geolocation)
+            implementation(libs.compass.geolocation.mobile)
+
+            // Geocoding
+            implementation(libs.compass.geocoder)
+            implementation(libs.compass.geocoder.mobile)
+
+            // Autocomplete
+            implementation(libs.compass.autocomplete)
+            implementation(libs.compass.autocomplete.mobile)
+
+            // Location permissions for mobile
+            implementation(libs.compass.permissions.mobile)
+
+            // Icons
+            implementation(libs.material.icons.extended)
 
         }
     }
@@ -104,6 +132,7 @@ android {
     }
 
 }
+
 
 dependencies {
     implementation(libs.androidx.material3.android)

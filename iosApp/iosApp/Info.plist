@@ -48,3 +48,6 @@
 	</array>
 </dict>
 </plist>
+
+NSLocationWhenInUseUsageDescription="Description number 1 for the permissions"
+NSLocationAlwaysAndWhenInUseUsageDescription="Description number 2 for the permissions"
