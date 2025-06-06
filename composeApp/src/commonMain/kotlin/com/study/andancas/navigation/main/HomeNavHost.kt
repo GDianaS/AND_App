@@ -39,6 +39,9 @@ fun HomeNavHost(
             SignInScreen(
                 onBackPressed = {
                     navHostController.popBackStack()
+                },
+                navigateToLoginScreen = {
+                    navHostController.navigate(HomeRoutes.Login)
                 }
             )
         }
