@@ -19,6 +19,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -35,9 +37,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.study.andancas.components.MapComponent
 import com.study.andancas.ui.BottomBar
@@ -72,13 +76,11 @@ fun MapScreen(
         ) {
             Box(){
                 //Google Maps
-                MapComponent(
-                )
+                MapComponent()
 
                 SearchBar(
-                    onSearch = {/*TODO*/}
+                    onSearch = { /* TODO: filtrar */ }
                 )
-
 
             }
 
@@ -153,4 +155,24 @@ fun SearchBar(
     )
 
 }
+
+@Composable
+fun SpotList(spots: List<LocationSpot>) {
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        spots.forEach { spot ->
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Column(modifier = Modifier.padding(12.dp)) {
+                    Text(text = spot.name, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                    Text(text = spot.address)
+                    Text(text = "Lat: ${spot.latitude}, Lng: ${spot.longitude}", fontSize = 12.sp)
+                    Text(text = spot.description, fontSize = 13.sp, color = Color.Gray)
+                }
+            }
+        }
+    }
+}
+
 

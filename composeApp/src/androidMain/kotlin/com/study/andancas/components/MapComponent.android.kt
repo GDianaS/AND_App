@@ -13,30 +13,36 @@ import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
+import com.study.andancas.features.map.LocationSpot
+import com.study.andancas.features.map.getSampleSpots
 
 @Composable
-actual fun MapComponent() {
+actual fun MapComponent(
+) {
+    val spots = getSampleSpots()
+    val defaultLocation = LatLng(-2.4430, -54.7077) // Posição inicial do mapa (Santarém)
+    val cameraPositionState = rememberCameraPositionState {
+        position = CameraPosition.fromLatLngZoom(defaultLocation, 12f)
+    }
+
     // Criando um mapa
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .padding(bottom = 45.dp)
-
     ) {
-        val coordinates = LatLng(-2.4430, -54.7077)
-        val markerState = rememberMarkerState(position = coordinates)
-        val cameraPositionState = rememberCameraPositionState {
-            position = CameraPosition.fromLatLngZoom(coordinates, 12f)
-        }
         GoogleMap(
             modifier = Modifier.fillMaxSize(),
             cameraPositionState = cameraPositionState
         ) {
-            Marker(
-                state = markerState,
-                title = "Santarém",
-                snippet = "Pará, Brasil"
-            )
+            spots.forEach { spot ->
+                Marker(
+                    state = rememberMarkerState(position = LatLng(spot.latitude, spot.longitude)),
+                    title = spot.name,
+                    snippet = spot.description
+                )
+            }
         }
     }
 }
+
