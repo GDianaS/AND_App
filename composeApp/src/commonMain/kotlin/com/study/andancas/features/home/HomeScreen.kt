@@ -61,6 +61,7 @@ fun HomeScreen(
     modifier: Modifier = Modifier,
     onBackPressed: () -> Unit,
     navigateToRouteScreen: () -> Unit,
+    navigateToMapScreen: () -> Unit,
     navController: NavHostController
 ){
 
@@ -118,7 +119,7 @@ fun HomeScreen(
                     CardOptions(
                         title = "Mapa",
                         imageResource = Res.drawable.map,
-                        onClick = { /*TODO*/}
+                        onClick = navigateToMapScreen
                     )
                 }
 

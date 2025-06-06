@@ -54,6 +54,9 @@ fun HomeNavHost(
                 navigateToRouteScreen = {
                     navHostController.navigate(HomeRoutes.Routes)
                 },
+                navigateToMapScreen = {
+                    navHostController.navigate(HomeRoutes.Map)
+                },
                 navController = navHostController
             )
         }
