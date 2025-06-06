@@ -23,7 +23,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -71,17 +73,19 @@ fun HomeScreen(
             .systemBarsPadding(),
 
         topBar = {Header(
-            title = "HOME",
+            title = "Home",
             showBackButton = true,
+            onBackClick = { /* ação */ },
             showMenuIcon = true,
-            onBackClick = onBackPressed,
+            onMenuClick = { /* ação */ }
         )},
 
         bottomBar = { BottomBar(navController = navController) }
     ){
 
         Column ( modifier = Modifier
-            .padding(16.dp),
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
 

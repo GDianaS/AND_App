@@ -49,10 +49,11 @@ fun RoutesScreen(
 
         topBar = {
             Header(
-            title = "ROTEIROS",
-            showBackButton = true,
-            showMenuIcon = true,
-                onBackClick = onBackPressed
+                title = "Roteiros",
+                showBackButton = true,
+                onBackClick = { /* ação */ },
+                showMenuIcon = true,
+                onMenuClick = { /* ação */ }
         )
         },
 

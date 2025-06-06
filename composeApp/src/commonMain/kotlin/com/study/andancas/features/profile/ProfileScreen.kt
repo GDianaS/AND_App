@@ -13,7 +13,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.ExitToApp
@@ -55,10 +57,11 @@ fun ProfileScreen(
 
         topBar = {
             Header(
-                title = "PERFIL",
+                title = "Perfil",
                 showBackButton = true,
+                onBackClick = { /* ação */ },
                 showMenuIcon = true,
-                onBackClick = onBackPressed
+                onMenuClick = { /* ação */ }
             )
         },
 
@@ -68,7 +71,8 @@ fun ProfileScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp),
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -82,7 +86,7 @@ fun ProfileScreen(
 
             // Imagem de Perfil
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(64.dp))
 
             Box(
                 modifier = Modifier
@@ -99,7 +103,7 @@ fun ProfileScreen(
                 )
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(4.dp))
 
             // Nome do usuário
             Text(
@@ -109,7 +113,7 @@ fun ProfileScreen(
                 color = MaterialTheme.colorScheme.onBackground
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(4.dp))
 
             // Seção de dados do usuário
             Text(
@@ -158,6 +162,8 @@ fun ProfileScreen(
                 Spacer(modifier = Modifier.width(8.dp))
                 Text("Sair da Conta", fontSize = 16.sp)
             }
+
+            Spacer(modifier = Modifier.width(16.dp))
 
 
 
